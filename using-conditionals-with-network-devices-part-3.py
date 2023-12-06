@@ -31,13 +31,30 @@ name = device_info['name']
 os = device_info['os-type']
 
     # Based on the OS-type, increment the count and add name to list
-if os == 'ios':
+    if os == 'ios':
         os_types['Cisco IOS']['count'] += 1
         os_types['Cisco IOS']['devs'].append(name)
 
     elif os == 'nx-os':
-        os_types['Cisco']
+        os_types['Cisco Nexus']['count'] += 1
+        os_types['Cisco Nexus']['devs'].append(name)
 
+    elif os == 'ios-xr':
+        os_types['Cisco IOS-XR']['count'] += 1
+        os_types['Cisco IOS-XR']['devs'].append(name)
 
+    elif os == 'ios-xe':
+        os_types['Cisco IOS-XE']['count'] += 1
+        os_types['Cisco IOS-XE']['devs'].append(name)
 
+    else:
+        print("   Warning: unknown device type:", os)
 
+# Display the OS types
+pprint(os_types)
+
+# Display blank line to make easier to read
+print('')
+
+# Close the file
+file.closed()
